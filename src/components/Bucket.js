@@ -29,7 +29,7 @@ function Bucket(props) {
         <p>{item.text}</p>
       </div>
       <div className="icons">
-        <p onClick={() => setEdit({ id: item.id, value: item.value, eagerness: item.eagerness })}> ✏️</p>
+        <p onClick={() => setEdit({ id: item.id, text: item.text, eagerness: item.eagerness })}> ✏️</p>
         <p onClick={() => props.removeBucketItem(item.id)}> 🗑️</p>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 function BucketForm(props) {
-  const [input, setInput] = useState('');
-  const [eagerness, setEagerness] = useState('low');
+  const [input, setInput] = useState(props.edit?.text || '');
+  const [eagerness, setEagerness] = useState(props.edit?.eagerness || 'low');
   const eagernessLevel = ['high', 'medium', 'low']
 
   const handleSubmit = (e) => {
@@ -47,11 +47,11 @@ function BucketForm(props) {
     </div>
   ) : (
     <div>
-      <h3>Update entry: {props.edit.value}</h3>
+      <h3>Update entry: {props.edit.text}</h3>
       <form className="bucket-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder={props.edit.value}
+          placeholder={props.edit.text}
           value={input}
           name="text"
           className="bucket-input"

@@ -33,6 +33,7 @@ function BucketList() {
 
   // Function to edit the bucket list item
   const editBucketItem = (itemId, newValue) => {
+
     if (!newValue.text) {
       return;
     }
