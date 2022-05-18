@@ -2,34 +2,25 @@ import React, { useState } from 'react';
 
 function BucketForm(props) {
   const [input, setInput] = useState('');
-  let [eagerness, setEagerness] = useState('');
-
-  // TODO: Use this array in the return statement below
+  const [eagerness, setEagerness] = useState('low');
   const eagernessLevel = ['high', 'medium', 'low']
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!eagerness) {
-      eagerness = 'low';
-    }
-
     props.onSubmit({
       id: Math.random(Math.floor() * 1000),
       text: input,
       eagerness: eagerness,
     });
-
     setInput('');
-    setEagerness('');
+    setEagerness('low');
   };
 
   const handleChange = (e) => {
     setInput(e.target.value);
   };
 
-  // First we check to see if "edit" prop exists. If not, we render the normal form
-  // If the prop "edit" exists, we know to render the update form instead
+
   return !props.edit ? (
     <div>
       <form className="bucket-form" onSubmit={handleSubmit}>
@@ -46,7 +37,6 @@ function BucketForm(props) {
             {eagerness || 'Priority'}
           </button>
           <div className="dropdown-content">
-            {/* TODO: Add an onClick event that will set the corresponding eagerness level from the `eagernessLevel` array */}
             <p onClick={() => setEagerness(eagernessLevel[0])}>Must do</p>
             <p onClick={() => setEagerness(eagernessLevel[1])}>Want to do</p>
             <p onClick={() => setEagerness(eagernessLevel[2])}>Take it or leave it</p>
@@ -72,7 +62,6 @@ function BucketForm(props) {
             {eagerness || 'Priority'}
           </button>
           <div className="dropdown-content">
-            {/* TODO: Add an onClick event that will set the corresponding eagerness level from the `eagernessLevel` array */}
             <p onClick={() => setEagerness(eagernessLevel[0])}>Must do</p>
             <p onClick={() => setEagerness(eagernessLevel[1])}>Want to do</p>
             <p onClick={() => setEagerness(eagernessLevel[2])}>Take it or leave it</p>
